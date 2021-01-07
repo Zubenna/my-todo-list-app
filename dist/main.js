@@ -1,0 +1,1 @@
+(()=>{const e=document.createElement("h1");e.innerHTML="Nnamdi Emelu",e.id="myname",document.querySelector("#content").appendChild(e)})();
