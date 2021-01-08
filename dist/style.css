@@ -1,4 +1,78 @@
-#myname {
-    color: firebrick;
-    background: forestgreen;
+/* font-family: 'Courgette', cursive; ----- for description */ 
+/* font-family: 'Courgette', cursive;
+font-family: 'Frank Ruhl Libre', serif; */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+#menu {
+  height: 3rem;
+  background: #dd8f8f;
+  text-align: center;
+  color: #000;
+}
+
+#menu h2 {
+  font-size: 1.8rem;
+  padding-top: 0.4rem;
+  font-weight: bold;
+}
+
+#todo-body {
+  display: flex;
+}
+
+#list-box {
+  width: 25%;
+  height: 92.8vh;
+  background: #e2bfbf;
+  padding: 1rem;
+}
+
+#list-box h3 {
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+#list-name {
+  font-size: 1rem;
+  border-radius: 10px;
+  width: 100%;
+}
+
+#submit-list {
+  margin-top: 1rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.group-name {
+  display: flex;
+  margin-top: 4rem;
+}
+
+.fa-folder-open {
+  font-size: 1.7rem;
+  padding-left: 2.3rem;
+}
+
+#task-box {
+  background: cadetblue;
+  height: 92.8vh;
+  width: 100%;
+}
+
+#delete-list {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.add-list {
+  margin: 0 auto;
+  padding: 2rem 0;
+  text-align: center;
 }
