@@ -25,25 +25,31 @@ font-family: 'Frank Ruhl Libre', serif; */
   display: flex;
 }
 
-#list-box {
+#group-box {
   width: 25%;
   height: 92.8vh;
   background: #e2bfbf;
+  overflow-y: scroll;
   padding: 1rem;
 }
 
-#list-box h3 {
+::-webkit-scrollbar {
+  display: none;
+}
+
+#group-box h3 {
   font-size: 1.5rem;
   padding-left: 0.5rem;
 }
 
-#list-name {
+#group-name {
   font-size: 1rem;
   border-radius: 10px;
+  box-shadow: none;
   width: 100%;
 }
 
-#submit-list {
+#submit-group {
   margin-top: 1rem;
   padding: 0.2rem;
   font-size: 1rem;
@@ -60,19 +66,98 @@ font-family: 'Frank Ruhl Libre', serif; */
   padding-left: 2.3rem;
 }
 
-#task-box {
+#task-container {
   background: cadetblue;
   height: 92.8vh;
   width: 100%;
 }
 
-#delete-list {
+#delete-group {
   width: 100%;
   border-radius: 10px;
 }
 
-.add-list {
+.add-group {
   margin: 0 auto;
   padding: 2rem 0;
   text-align: center;
+}
+
+#enter-task {
+  width: 32%;
+  background: cornflowerblue;
+  position: absolute;
+  top: 16%;
+  left: 40%;
+  border-radius: 10px;  
+}
+
+.close-box {
+  height: 2rem;
+  display: block;
+}
+  
+.close {
+  padding: 0.3rem 0.4rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  float: right;
+}
+  
+.close a {
+  color: #fff;
+}
+
+.form {
+  padding: 1rem;
+}
+
+.form label{
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+  input[type='text'],
+  input[type= 'date'],
+  input[type='submit'],
+  textarea,
+  select {
+  width: 100%;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: 'Courgette', cursive;
+  background: #f0ebeb;
+  padding: 0.2rem;
+}
+
+.add-task {
+  font-size: 3rem;
+  color: #232fcf;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+.no-display {
+  display: none;
+}
+
+#group-container p {
+  margin: 0 0 0.4rem 0;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #232fcf;
+}
+
+.active-group {
+  background: #068640;
+}
+
+.group-duplicate {
+  color: #f30b32;
+}
+
+.red-border {
+  border: 2px solid #f30b32;
 }
