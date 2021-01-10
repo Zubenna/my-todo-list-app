@@ -5,7 +5,7 @@ let selectedGrpId = '';
 let currentGroup = '';
 let otherGrpId = '';
 let otherGrps = '';
-// const selectedIndex = '';
+let setDelete = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   addForm.classList.add('no-display');
@@ -27,7 +27,8 @@ const selectGroup = (currentTarget) => {
     if (currentTarget === item.name) {
        selectedGrpId = item.id;
        currentGroup = document.getElementById(selectedGrpId);
-       currentGroup.classList.toggle('active-group');
+       currentGroup.classList.add('active-group');
+       setDelete = true;
     } else {
        otherGrpId = item.id;
        otherGrps = document.getElementById(otherGrpId);
@@ -43,11 +44,8 @@ groupBox.addEventListener('click', (e) => {
 });
 
 deleteGroup.addEventListener('click', () => {
-  let setDelete = false;
-  if (currentGroup.classList.contains('active-group')) {
-    // console.log(currentGroup.classList.contains('active-group'))
+  if (setDelete) {
     group.deleteGroup(group.myTodoArray, selectedGrpId);
-    setDelete = true;
   }
   setDelete = false;
   group.render();
