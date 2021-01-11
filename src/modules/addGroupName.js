@@ -5,19 +5,19 @@ const DEFAULT_DATA = [
   {
      id: Date.now().toString(),
      name: 'Travelling',
-     tasks: ['Travell to Lagos', '2020-01-15', 'This is to attend an interview for a big job', 'High Priority']
+     tasks: [{name: 'Travell to Lagos'}, {dueDate: '2020-01-15'}, {description: 'Attend an interview for a big job'}, {priority: 'High Priority'}]
    },
 ];
 
 const todoGroup = () => ({
-  id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: ['test', 'test']
+  id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: []
 }); 
 
-const updateLocalStorage = () => {
+export const updateLocalStorage = () => {
   localStorage.setItem('myTodoArray', JSON.stringify(myTodoArray));
 }
 
-const checkLocalStorage = () => {
+export const checkLocalStorage = () => {
   if (localStorage.getItem('myTodoArray')) {
     myTodoArray = JSON.parse(localStorage.getItem('myTodoArray'));
   } else {
