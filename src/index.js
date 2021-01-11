@@ -1,6 +1,6 @@
-import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask } from './modules/documentObjects';
+import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox } from './modules/documentObjects';
 import * as  group from './modules/addGroupName';
-import { todoTasks, createTasks } from './modules/manageTasks';
+import { todoTasks, createTasks, renderTasks } from './modules/manageTasks';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -24,13 +24,14 @@ submitGrpForm.addEventListener('submit', (e) => {
 });
 
 const selectGroup = (currentTarget) => {
+  taskBox.innerHTML = '';
   group.myTodoArray.forEach((item) => {
     if (currentTarget === item.name) {
        selectedGrpId = item.id;
        let groupTasks = item.tasks;
        currentGroup = document.getElementById(selectedGrpId);
        currentGroup.classList.add('active-group');
-       todoTasks(groupTasks);
+      renderTasks(groupTasks);
        setDelete = true;
     } else {
        otherGrpId = item.id;
@@ -55,7 +56,8 @@ deleteGroup.addEventListener('click', () => {
 });
 
 submitTask.addEventListener('click', () => {
-  createTasks();
-  // console.log('submit-one clicked');
+  createTasks(group.myTodoArray, selectedGrpId);
+  console.log(selectedGrpId);
+  console.log('submit-one clicked');
 });
 

@@ -161,3 +161,21 @@ font-family: 'Frank Ruhl Libre', serif; */
 .red-border {
   border: 2px solid #f30b32;
 }
+
+.task-box {
+ margin-top: 1rem;
+}
+
+.task-box-div {
+  background: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.6rem;
+  border-radius: 5px;
+}
+
+.t-describe {
+  width: 40%;
+}

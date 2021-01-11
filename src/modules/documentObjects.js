@@ -10,7 +10,7 @@ export const addTask = document.querySelector('.add-task'),
              dueDate = document.querySelector('#due-date'),
              selectPriority = document.querySelector('#select-priority'),
              describeTask = document.querySelector('#describe-task'),
-             taskBox = document.querySelector('#task-box');
+             taskBox = document.querySelector('.task-box');
             
             
              

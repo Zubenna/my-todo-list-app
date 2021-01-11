@@ -64,8 +64,13 @@ export const createGroupName = () => {
   }
 };
 
+export const findArrIndex = (arr, itemID) => {
+  const result = arr.findIndex(x => x.id === itemID);
+  return result;
+}
+
 export const deleteGroup = (todoArray, grpID) => {
-  const index = todoArray.findIndex(x => x.id === grpID);
+  const index = findArrIndex(todoArray, grpID);
   todoArray.splice(index, 1);
   updateLocalStorage();
 }
