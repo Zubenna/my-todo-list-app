@@ -69,8 +69,8 @@ export const findArrIndex = (arr, itemID) => {
   return result;
 }
 
-export const deleteGroup = (todoArray, grpID) => {
-  const index = findArrIndex(todoArray, grpID);
-  todoArray.splice(index, 1);
+export const deleteGroup = (theArray, grpID) => {
+  const index = findArrIndex(theArray, grpID);
+  theArray.splice(index, 1);
   updateLocalStorage();
 }

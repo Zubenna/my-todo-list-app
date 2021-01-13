@@ -134,9 +134,9 @@ font-family: 'Frank Ruhl Libre', serif; */
 .add-task {
   font-size: 3rem;
   color: #232fcf;
-  position: absolute;
+  position: relative;
   top: 20%;
-  left: 25%;
+  left: 10%;
 }
 
 .no-display {
@@ -163,7 +163,11 @@ font-family: 'Frank Ruhl Libre', serif; */
 }
 
 .task-box {
- margin-top: 1rem;
+  margin-top: 4rem;
+}
+
+#task-container {
+  overflow-y: scroll; 
 }
 
 .task-box-div {
@@ -177,5 +181,28 @@ font-family: 'Frank Ruhl Libre', serif; */
 }
 
 .t-describe {
-  width: 40%;
+  max-width: 40%;
+}
+
+.t-title {
+  width: 20%;
+}
+
+.t-priority {
+  width: 15%;
+}
+
+.fa-edit,
+.fa-trash-o {
+  font-size: 1.5rem;
+}
+
+.edit-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-edit {
+  display: flex;
+  justify-content: space-between;
 }

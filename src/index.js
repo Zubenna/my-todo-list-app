@@ -1,6 +1,7 @@
-import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox } from './modules/documentObjects';
+import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox, taskEdit,
+          taskDelete,  taskBoxEdit   } from './modules/documentObjects';
 import * as  group from './modules/addGroupName';
-import { todoTasks, createTasks, renderTasks } from './modules/manageTasks';
+import { todoTasks, createTasks, renderTasks, getTaskArr } from './modules/manageTasks';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -24,14 +25,14 @@ submitGrpForm.addEventListener('submit', (e) => {
 });
 
 const selectGroup = (currentTarget) => {
-  taskBox.innerHTML = '';
+  taskBoxEdit.innerHTML = '';
   group.myTodoArray.forEach((item) => {
     if (currentTarget === item.name) {
        selectedGrpId = item.id;
        let groupTasks = item.tasks;
        currentGroup = document.getElementById(selectedGrpId);
        currentGroup.classList.add('active-group');
-      renderTasks(groupTasks);
+       renderTasks(groupTasks);
        setDelete = true;
     } else {
        otherGrpId = item.id;
@@ -57,7 +58,19 @@ deleteGroup.addEventListener('click', () => {
 
 submitTask.addEventListener('click', () => {
   createTasks(group.myTodoArray, selectedGrpId);
-  console.log(selectedGrpId);
-  console.log('submit-one clicked');
 });
 
+taskBoxEdit.addEventListener('click', (e) => {
+  e.preventDefault();
+  const taskTarget = e.target.className;
+  const targetID = e.target.id;
+  const expectedId = targetID.slice(0, (targetID.length - 1));
+  const currentArr = getTaskArr(group.myTodoArray, selectedGrpId);
+    currentArr.forEach((item) => {
+      if ((taskTarget === 'fa fa-trash-o') && (expectedId === item.id)) {
+          const requiredID = item.id;
+          group.deleteGroup(currentArr, requiredID);
+          renderTasks(currentArr);
+      }
+   });
+});
