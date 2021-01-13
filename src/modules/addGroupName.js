@@ -5,7 +5,7 @@ const DEFAULT_DATA = [
   {
      id: Date.now().toString(),
      name: 'Travelling',
-     tasks: [{name: 'Travell to Lagos'}, {dueDate: '2020-01-15'}, {description: 'Attend an interview for a big job'}, {priority: 'High Priority'}]
+     tasks: [{name: 'Travell to Lagos'}, {dueDate: '2020-01-15'}, {description: 'Attend an interview for a big job'}, {priority: 'High'}]
    },
 ];
 

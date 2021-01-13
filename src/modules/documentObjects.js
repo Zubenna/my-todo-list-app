@@ -1,5 +1,3 @@
-// import { taskId } from './manageTasks'
-
 export const addTask = document.querySelector('.add-task'),
              addForm = document.querySelector('#enter-task'),
              groupName = document.querySelector('#group-name'),
@@ -14,10 +12,8 @@ export const addTask = document.querySelector('.add-task'),
              describeTask = document.querySelector('#describe-task'),
              taskBoxEdit = document.querySelector('.task-box'),
              taskEdit = document.querySelector('.fa-edit'),
-             taskDelete = document.querySelector('#del-task');
-            
-            
-            
-            
-
+             taskDelete = document.querySelector('#del-task'),
+             formTitle = document.querySelector('.form-title'),
+             editTask = document.querySelector('#update-task');        
+             
              

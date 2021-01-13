@@ -1,4 +1,4 @@
-import {  taskName, dueDate, selectPriority, describeTask, taskBoxEdit, deleteTask } from './documentObjects';
+import {  taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm, deleteTask, editTask } from './documentObjects';
 import * as  task from './addGroupName';
 
 const todoTask = () => ({
@@ -22,7 +22,6 @@ export const renderTasks = (taskArray) => {
 export const createTasks = (arr, selectID) => {
   const currentIndex = task.findArrIndex(arr, selectID);
   const currentArray = arr[currentIndex];
-      //  console.log(currentArray.id);
   const newTask = todoTask();
   currentArray.tasks.push(newTask);
   task.updateLocalStorage();
@@ -34,4 +33,21 @@ export const getTaskArr = (arr, grpId) => {
   const taskArr = arr[taskIndex];
   const currentTaskArr = taskArr.tasks;
   return currentTaskArr;
+}
+
+export const setTaskEdit = (arr, selectedId) => {
+  const rqdIndex = task.findArrIndex(arr, selectedId);
+  const editArr = arr[rqdIndex];
+  taskName.value = editArr.name;
+  dueDate.value = editArr.dateDue;
+  selectPriority.value = editArr.priority;
+  describeTask.value = editArr.describe;
+  addForm.style.display = 'block';
+}
+
+export const completeEdit = (arr, editId) => {
+   const rqdIndex = task.findArrIndex(arr, editId);
+   const newEdit = todoTask();
+   arr.splice(rqdIndex, 1, newEdit);
+  task.updateLocalStorage();
 }

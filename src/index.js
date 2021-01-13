@@ -1,7 +1,7 @@
 import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox, taskEdit,
-          taskDelete,  taskBoxEdit   } from './modules/documentObjects';
+          taskDelete,  taskBoxEdit, formTitle, editTask } from './modules/documentObjects';
 import * as  group from './modules/addGroupName';
-import { todoTasks, createTasks, renderTasks, getTaskArr } from './modules/manageTasks';
+import { todoTasks, createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit } from './modules/manageTasks';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 addTask.addEventListener('click', () => {
   addForm.classList.toggle('no-display');
+  editTask.style.display = 'none';
 });
 
 submitGrpForm.addEventListener('submit', (e) => {
@@ -52,8 +53,8 @@ deleteGroup.addEventListener('click', () => {
   if (setDelete) {
     group.deleteGroup(group.myTodoArray, selectedGrpId);
   }
-  setDelete = false;
-  group.render();
+    setDelete = false;
+    group.render();
 });
 
 submitTask.addEventListener('click', () => {
@@ -71,6 +72,17 @@ taskBoxEdit.addEventListener('click', (e) => {
           const requiredID = item.id;
           group.deleteGroup(currentArr, requiredID);
           renderTasks(currentArr);
+      }
+      if ((taskTarget === 'fa fa-edit') && (expectedId === item.id)) {
+            formTitle.innerHTML = 'Edit Task';
+            submitTask.style.display = 'none';
+          const requiredID = item.id;
+          setTaskEdit(currentArr, requiredID);
+
+          editTask.addEventListener('click', () => {
+          completeEdit(currentArr, requiredID);
+          renderTasks(currentArr);
+          });
       }
    });
 });
