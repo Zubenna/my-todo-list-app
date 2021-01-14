@@ -206,3 +206,15 @@ font-family: 'Frank Ruhl Libre', serif; */
   display: flex;
   justify-content: space-between;
 }
+
+#sort-item {
+  display: none;
+  width: 40%;
+  margin: 3rem auto 0 auto;
+}
+
+.task-div {
+  text-decoration: line-through;
+  background: #b6b2b2;
+  color: #f30b32;
+}
