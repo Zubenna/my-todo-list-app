@@ -1,7 +1,8 @@
 import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox, taskEdit,
-          taskDelete,  taskBoxEdit, formTitle, editTask } from './modules/documentObjects';
+          taskDelete, taskDiv, taskBoxEdit, formTitle, editTask, sortItem } from './modules/documentObjects';
 import * as  group from './modules/addGroupName';
-import { todoTasks, createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit } from './modules/manageTasks';
+      
+import { todoTasks, createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks } from './modules/manageTasks';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -35,7 +36,13 @@ const selectGroup = (currentTarget) => {
        currentGroup.classList.add('active-group');
        renderTasks(groupTasks);
        setDelete = true;
-    } else {
+       const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
+         if (sortArr.length >= 2) {
+          sortItem.style.display = 'block';
+         } else {
+          sortItem.style.display = 'none';
+         }
+       } else {
        otherGrpId = item.id;
        otherGrps = document.getElementById(otherGrpId);
        otherGrps.classList.remove('active-group');
@@ -65,6 +72,7 @@ taskBoxEdit.addEventListener('click', (e) => {
   e.preventDefault();
   const taskTarget = e.target.className;
   const targetID = e.target.id;
+  const titleParent = e.target.parentElement.id;
   const expectedId = targetID.slice(0, (targetID.length - 1));
   const currentArr = getTaskArr(group.myTodoArray, selectedGrpId);
     currentArr.forEach((item) => {
@@ -84,5 +92,17 @@ taskBoxEdit.addEventListener('click', (e) => {
           renderTasks(currentArr);
           });
       }
+        const divId = document.getElementById(titleParent);
+        const rqdTitleiD = targetID.slice(3, (targetID.length));
+      if ( item.id ===  rqdTitleiD) {
+        divId.classList.toggle('task-div');
+      }
    });
+});
+
+sortItem.addEventListener('change', (e) => {
+  e.preventDefault();
+  const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
+  let sortBasis = sortItem.value;
+    sortTasks(sortArr, sortBasis);  
 });
