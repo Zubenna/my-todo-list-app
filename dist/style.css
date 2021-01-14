@@ -23,7 +23,7 @@ font-family: 'Frank Ruhl Libre', serif; */
 
 #todo-body {
   display: flex;
-}
+} 
 
 #group-box {
   width: 25%;
@@ -217,4 +217,75 @@ font-family: 'Frank Ruhl Libre', serif; */
   text-decoration: line-through;
   background: #b6b2b2;
   color: #f30b32;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767.9px) {
+  #todo-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #enter-task {
+    width: 75%;
+    top: 42rem;
+    left: 12%;
+  }
+
+  .add-task {  
+    top: 0;
+    left: 0;
+  }
+
+  #group-box {
+    width: 100%;
+  }
+
+  .t-describe {
+    font-size: 0.8rem;
+  }
+
+  .task-box-div h5 {
+    font-size: 1rem;
+  }
+
+  .task-box-div span {
+    display: none;
+  }
+
+  .task-box-div .fa {
+    font-size: 1rem;
+  }
+
+  .t-priority,
+  #sort-item {
+    font-size: 0.8rem;
+  }
+
+  .t-priority,
+  .due-date {
+    color: #280bca;
+    font-weight: bold;
+  }
+
+  .due-date {
+    padding-left: 0.2rem;
+    font-size: 0.7rem;
+  }
+ 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .task-box-div span {
+    display: none;
+  }
+
+  #group-box {
+    width: 40%;
+  }
+
+  #enter-task {
+    width: 60%;
+    top: 12rem;
+    left: 32%;
+  }
 }

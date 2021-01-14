@@ -1,5 +1,5 @@
 import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox, taskEdit,
-          taskDelete, taskDiv, taskBoxEdit, formTitle, editTask, sortItem } from './modules/documentObjects';
+          taskBoxEdit, formTitle, editTask, sortItem } from './modules/documentObjects';
 import * as  group from './modules/addGroupName';
       
 import { todoTasks, createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks } from './modules/manageTasks';
