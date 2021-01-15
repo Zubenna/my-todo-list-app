@@ -1,7 +1,7 @@
-import {
-  taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm,
-} from './documentObjects';
 import * as task from './addGroupName';
+import {
+  renderTasks, taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm,
+} from '../index';
 
 const todoTask = () => ({
   id: Date.now().toString(),
@@ -10,20 +10,6 @@ const todoTask = () => ({
   priority: selectPriority.value,
   describe: describeTask.value,
 });
-
-export const renderTasks = (taskArray) => {
-  task.checkLocalStorage();
-  taskBoxEdit.innerHTML = '';
-  taskArray.forEach((task) => {
-    const htmlTask = `
-      <div class='task-box-div' id='tb-${task.id}'><h5 class='t-title' id='pt-${task.id}'><span>Title:</span> ${task.name}</h5></br>
-      <textarea class='t-describe'>${task.describe}</textarea><p class='t-priority'><span>Priority:</span> ${task.priority}</p>
-      <div class='edit-box'><p class='due-date'><span>Due Date:</span> ${task.dateDue}</p><div class='task-edit'><i class="fa fa-edit" id='${task.id}e'></i>
-      <i class='fa fa-trash-o' id='${task.id}d'></i>
-      </div></div></div></br>`;
-    taskBoxEdit.insertAdjacentHTML('afterbegin', htmlTask);
-  });
-};
 
 export const createTasks = (arr, selectID) => {
   const currentIndex = task.findArrIndex(arr, selectID);

@@ -1,6 +1,6 @@
 import {
   groupName, groupBox, groupDupError,
-} from './documentObjects';
+} from '../index';
 
 export let myTodoArray;
 
