@@ -1,11 +1,12 @@
 import {
   groupName, groupBox, groupDupError,
 } from './documentObjects';
+
 export let myTodoArray;
 
 const DEFAULT_DATA = [
   {
-    id: Date.now().toString(),
+    id: '3456',
     name: 'Travelling',
     tasks: [{
       id: '7893455',
@@ -16,11 +17,11 @@ const DEFAULT_DATA = [
     }],
   },
   {
-    id: Date.now().toString(),
+    id: '7865',
     name: 'Study',
     tasks: [{
       id: '5768394',
-      name: 'Study JavaSCript Arrays',
+      name: 'Study JavaScript',
       dateDue: '2020-01-20',
       priority: 'Medium',
       describe: 'Studying this topic is crucial to my next project',

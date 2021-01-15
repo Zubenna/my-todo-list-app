@@ -4,8 +4,11 @@ import {
 import * as task from './addGroupName';
 
 const todoTask = () => ({
-  id: Date.now().toString(), name: taskName.value, dateDue: dueDate.value,
-  priority: selectPriority.value, describe: describeTask.value,
+  id: Date.now().toString(),
+  name: taskName.value,
+  dateDue: dueDate.value,
+  priority: selectPriority.value,
+  describe: describeTask.value,
 });
 
 export const renderTasks = (taskArray) => {
