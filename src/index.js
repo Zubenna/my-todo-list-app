@@ -2,27 +2,10 @@ import * as group from './modules/addGroupName';
 import {
   createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
 } from './modules/manageTasks';
-
-const addTask = document.querySelector('.add-task');
-const formTitle = document.querySelector('.form-title');
-const editTask = document.querySelector('#update-task');
-const sortItem = document.querySelector('#sort-item');
-const submitGrpForm = document.querySelector('.add-group');
-const deleteGroup = document.querySelector('#delete-group');
-const submitTask = document.querySelector('#submit-task');
-const taskBoxEdit = document.querySelector('.task-box');
-
-export const addForm = document.querySelector('#enter-task');
-export const groupName = document.querySelector('#group-name');
-export const groupBox = document.querySelector('#group-container');
-export const groupDupError = document.querySelector('#gErrMsg');
-export const taskName = document.querySelector('#task-name');
-export const dueDate = document.querySelector('#due-date');
-export const selectPriority = document.querySelector('#select-priority');
-export const describeTask = document.querySelector('#describe-task');
-export const taskEdit = document.querySelector('.fa-edit');
-export const taskDelete = document.querySelector('#del-task');
-export const taskDiv = document.querySelector('.task-box-div');
+import {
+  addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
+  groupBox, submitTask, addForm,
+} from './modules/domVariables';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -45,6 +28,20 @@ submitGrpForm.addEventListener('submit', (e) => {
   group.createGroupName();
   group.render();
 });
+
+export const renderTasks = (taskArray) => {
+  group.checkLocalStorage();
+  taskBoxEdit.innerHTML = '';
+  taskArray.forEach((task) => {
+    const htmlTask = `
+      <div class='task-box-div' id='tb-${task.id}'><h5 class='t-title' id='pt-${task.id}'><span>Title:</span> ${task.name}</h5></br>
+      <textarea class='t-describe'>${task.describe}</textarea><p class='t-priority'><span>Priority:</span> ${task.priority}</p>
+      <div class='edit-box'><p class='due-date'><span>Due Date:</span> ${task.dateDue}</p><div class='task-edit'><i class="fa fa-edit" id='${task.id}e'></i>
+      <i class='fa fa-trash-o' id='${task.id}d'></i>
+      </div></div></div></br>`;
+    taskBoxEdit.insertAdjacentHTML('afterbegin', htmlTask);
+  });
+};
 
 const selectGroup = (currentTarget) => {
   taskBoxEdit.innerHTML = '';
@@ -127,16 +124,3 @@ sortItem.addEventListener('change', (e) => {
   sortTasks(sortArr, sortBasis);
 });
 
-export const renderTasks = (taskArray) => {
-  group.checkLocalStorage();
-  taskBoxEdit.innerHTML = '';
-  taskArray.forEach((task) => {
-    const htmlTask = `
-      <div class='task-box-div' id='tb-${task.id}'><h5 class='t-title' id='pt-${task.id}'><span>Title:</span> ${task.name}</h5></br>
-      <textarea class='t-describe'>${task.describe}</textarea><p class='t-priority'><span>Priority:</span> ${task.priority}</p>
-      <div class='edit-box'><p class='due-date'><span>Due Date:</span> ${task.dateDue}</p><div class='task-edit'><i class="fa fa-edit" id='${task.id}e'></i>
-      <i class='fa fa-trash-o' id='${task.id}d'></i>
-      </div></div></div></br>`;
-    taskBoxEdit.insertAdjacentHTML('afterbegin', htmlTask);
-  });
-};

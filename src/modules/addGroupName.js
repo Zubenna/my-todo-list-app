@@ -1,6 +1,6 @@
 import {
   groupName, groupBox, groupDupError,
-} from '../index';
+} from './domVariables';
 
 export let myTodoArray;
 

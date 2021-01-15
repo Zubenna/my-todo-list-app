@@ -1,7 +1,7 @@
 import * as task from './addGroupName';
 import {
-  renderTasks, taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm,
-} from '../index';
+  renderTasks, taskName, dueDate, selectPriority, describeTask, addForm,
+} from './domVariables';
 
 const todoTask = () => ({
   id: Date.now().toString(),
