@@ -4,7 +4,8 @@ import {
 import * as task from './addGroupName';
 
 const todoTask = () => ({
-  id: Date.now().toString(), name: taskName.value, dateDue: dueDate.value, priority: selectPriority.value, describe: describeTask.value,
+  id: Date.now().toString(), name: taskName.value, dateDue: dueDate.value,
+  priority: selectPriority.value, describe: describeTask.value,
 });
 
 export const renderTasks = (taskArray) => {
@@ -59,7 +60,7 @@ export const completeEdit = (arr, editId) => {
 const sortWithPriority = (b, a) => {
   const bandA = a.priority;
   const bandB = b.priority;
-  let sortWithPriority  = 0;
+  let sortWithPriority = 0;
   if (bandA > bandB) {
     sortWithPriority = 1;
   } else if (bandA < bandB) {

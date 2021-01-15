@@ -1,7 +1,6 @@
 import {
   groupName, groupBox, groupDupError,
 } from './documentObjects';
-
 export let myTodoArray;
 
 const DEFAULT_DATA = [
@@ -9,28 +8,28 @@ const DEFAULT_DATA = [
     id: Date.now().toString(),
     name: 'Travelling',
     tasks: [{
-             name: 'Travell to Lagos',
-             dueDate: '2020-01-15',
-             description: 'Attend an interview for a big job',
-             priority: 'High'
-            },
-    ],
+      id: '7893455',
+      name: 'Travell to Lagos',
+      dateDue: '2020-01-15',
+      priority: 'High',
+      describe: 'Attend an interview for a big job',
+    }],
   },
   {
     id: Date.now().toString(),
     name: 'Study',
-    tasks: [{ 
-             name: 'Study JavaSCript Arrays',
-             dueDate: '2020-01-20',
-             description: 'Studying this topic is crucial to my next project',
-             priority: 'Medium'
-            },
-    ],
+    tasks: [{
+      id: '5768394',
+      name: 'Study JavaSCript Arrays',
+      dateDue: '2020-01-20',
+      priority: 'Medium',
+      describe: 'Studying this topic is crucial to my next project',
+    }],
   },
-]
+];
 
 const todoGroup = () => ({
-  id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: []
+  id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: [],
 });
 
 export const updateLocalStorage = () => {
