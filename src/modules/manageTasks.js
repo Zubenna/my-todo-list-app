@@ -1,10 +1,10 @@
 import {
-  taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm
+  taskName, dueDate, selectPriority, describeTask, taskBoxEdit, addForm,
 } from './documentObjects';
 import * as task from './addGroupName';
 
 const todoTask = () => ({
-  id: Date.now().toString(), name: taskName.value, dateDue: dueDate.value,priority: selectPriority.value, describe: describeTask.value,
+  id: Date.now().toString(), name: taskName.value, dateDue: dueDate.value, priority: selectPriority.value, describe: describeTask.value,
 });
 
 export const renderTasks = (taskArray) => {
@@ -24,7 +24,7 @@ export const renderTasks = (taskArray) => {
 export const createTasks = (arr, selectID) => {
   const currentIndex = task.findArrIndex(arr, selectID);
   const currentArray = arr[currentIndex];
-  if (taskName.value !== '' && dueDate.value !== '' && selectPriority.value && '') {
+  if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
     const newTask = todoTask();
     currentArray.tasks.push(newTask);
     task.updateLocalStorage();

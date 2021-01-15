@@ -1,6 +1,6 @@
 import {
   submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask,
-  taskBoxEdit, formTitle, editTask, sortItem
+  taskBoxEdit, formTitle, editTask, sortItem,
 } from './modules/documentObjects';
 import * as group from './modules/addGroupName';
 import {
@@ -33,13 +33,13 @@ const selectGroup = (currentTarget) => {
   taskBoxEdit.innerHTML = '';
   group.myTodoArray.forEach((item) => {
     if (currentTarget === item.name) {
-    selectedGrpId = item.id;
-    const groupTasks = item.tasks;
-    currentGroup = document.getElementById(selectedGrpId);
-    currentGroup.classList.add('active-group');
-    renderTasks(groupTasks);
-    setDelete = true;
-    const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
+      selectedGrpId = item.id;
+      const groupTasks = item.tasks;
+      currentGroup = document.getElementById(selectedGrpId);
+      currentGroup.classList.add('active-group');
+      renderTasks(groupTasks);
+      setDelete = true;
+      const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
       if (sortArr.length >= 2) {
         sortItem.style.display = 'block';
       } else {
@@ -91,8 +91,8 @@ taskBoxEdit.addEventListener('click', (e) => {
       setTaskEdit(currentArr, requiredID);
 
       editTask.addEventListener('click', () => {
-      completeEdit(currentArr, requiredID);
-      renderTasks(currentArr);
+        completeEdit(currentArr, requiredID);
+        renderTasks(currentArr);
       });
     }
     const divId = document.getElementById(titleParent);

@@ -1,5 +1,5 @@
 import {
-  groupName, groupBox, groupDupError
+  groupName, groupBox, groupDupError,
 } from './documentObjects';
 
 export let myTodoArray;
@@ -8,14 +8,26 @@ const DEFAULT_DATA = [
   {
     id: Date.now().toString(),
     name: 'Travelling',
-    tasks: [{ name: 'Travell to Lagos' }, { dueDate: '2020-01-15' }, { description: 'Attend an interview for a big job' }, { priority: 'High' },]
+    tasks: [{
+             name: 'Travell to Lagos',
+             dueDate: '2020-01-15',
+             description: 'Attend an interview for a big job',
+             priority: 'High'
+            },
+    ],
   },
   {
     id: Date.now().toString(),
     name: 'Study',
-    tasks: [{ name: 'Study JavaSCript Arrays' }, { dueDate: '2020-01-20' }, { description: 'Studying this topic is crucial to my next project' }, { priority: 'Medium' },]
+    tasks: [{ 
+             name: 'Study JavaSCript Arrays',
+             dueDate: '2020-01-20',
+             description: 'Studying this topic is crucial to my next project',
+             priority: 'Medium'
+            },
+    ],
   },
-];
+]
 
 const todoGroup = () => ({
   id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: []
@@ -53,13 +65,13 @@ export const findItem = (arr, inputItem) => {
       index = arr.indexOf(inputItem);
     }
   });
-  index;
+  return index;
 };
 
 export const createGroupName = () => {
   const newGroup = todoGroup();
   const grpName = newGroup.name;
-  if (myTodoArray.length === 0 || (findItem(myTodoArray, grpName) === '') && (groupName.value !== '')) {
+  if ((myTodoArray.length === 0 || findItem(myTodoArray, grpName) === '') && (groupName.value !== '')) {
     checkLocalStorage();
     myTodoArray.push(newGroup);
     updateLocalStorage();

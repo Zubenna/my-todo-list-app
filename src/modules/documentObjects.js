@@ -15,5 +15,5 @@ export const taskEdit = document.querySelector('.fa-edit');
 export const taskDelete = document.querySelector('#del-task');
 export const formTitle = document.querySelector('.form-title');
 export const editTask = document.querySelector('#update-task');
-export const sortItem = document.querySelector('#sort-item');     
+export const sortItem = document.querySelector('#sort-item');
 export const taskDiv = document.querySelector('.task-box-div');
