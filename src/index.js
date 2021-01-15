@@ -1,8 +1,11 @@
-import {  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask, taskBox, taskEdit,
-          taskBoxEdit, formTitle, editTask, sortItem } from './modules/documentObjects';
-import * as  group from './modules/addGroupName';
-      
-import { todoTasks, createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks } from './modules/manageTasks';
+import {
+  submitGrpForm, addTask, addForm, groupBox, deleteGroup, submitTask,
+  taskBoxEdit, formTitle, editTask, sortItem
+} from './modules/documentObjects';
+import * as group from './modules/addGroupName';
+import {
+  createTasks, renderTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
+} from './modules/manageTasks';
 
 let selectedGrpId = '';
 let currentGroup = '';
@@ -30,22 +33,22 @@ const selectGroup = (currentTarget) => {
   taskBoxEdit.innerHTML = '';
   group.myTodoArray.forEach((item) => {
     if (currentTarget === item.name) {
-       selectedGrpId = item.id;
-       let groupTasks = item.tasks;
-       currentGroup = document.getElementById(selectedGrpId);
-       currentGroup.classList.add('active-group');
-       renderTasks(groupTasks);
-       setDelete = true;
-       const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
-         if (sortArr.length >= 2) {
-          sortItem.style.display = 'block';
-         } else {
-          sortItem.style.display = 'none';
-         }
-       } else {
-       otherGrpId = item.id;
-       otherGrps = document.getElementById(otherGrpId);
-       otherGrps.classList.remove('active-group');
+    selectedGrpId = item.id;
+    const groupTasks = item.tasks;
+    currentGroup = document.getElementById(selectedGrpId);
+    currentGroup.classList.add('active-group');
+    renderTasks(groupTasks);
+    setDelete = true;
+    const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
+      if (sortArr.length >= 2) {
+        sortItem.style.display = 'block';
+      } else {
+        sortItem.style.display = 'none';
+      }
+    } else {
+      otherGrpId = item.id;
+      otherGrps = document.getElementById(otherGrpId);
+      otherGrps.classList.remove('active-group');
     }
   });
 };
@@ -60,8 +63,8 @@ deleteGroup.addEventListener('click', () => {
   if (setDelete) {
     group.deleteGroup(group.myTodoArray, selectedGrpId);
   }
-    setDelete = false;
-    group.render();
+  setDelete = false;
+  group.render();
 });
 
 submitTask.addEventListener('click', () => {
@@ -75,34 +78,34 @@ taskBoxEdit.addEventListener('click', (e) => {
   const titleParent = e.target.parentElement.id;
   const expectedId = targetID.slice(0, (targetID.length - 1));
   const currentArr = getTaskArr(group.myTodoArray, selectedGrpId);
-    currentArr.forEach((item) => {
-      if ((taskTarget === 'fa fa-trash-o') && (expectedId === item.id)) {
-          const requiredID = item.id;
-          group.deleteGroup(currentArr, requiredID);
-          renderTasks(currentArr);
-      }
-      if ((taskTarget === 'fa fa-edit') && (expectedId === item.id)) {
-            formTitle.innerHTML = 'Edit Task';
-            submitTask.style.display = 'none';
-          const requiredID = item.id;
-          setTaskEdit(currentArr, requiredID);
+  currentArr.forEach((item) => {
+    if ((taskTarget === 'fa fa-trash-o') && (expectedId === item.id)) {
+      const requiredID = item.id;
+      group.deleteGroup(currentArr, requiredID);
+      renderTasks(currentArr);
+    }
+    if ((taskTarget === 'fa fa-edit') && (expectedId === item.id)) {
+      formTitle.innerHTML = 'Edit Task';
+      submitTask.style.display = 'none';
+      const requiredID = item.id;
+      setTaskEdit(currentArr, requiredID);
 
-          editTask.addEventListener('click', () => {
-          completeEdit(currentArr, requiredID);
-          renderTasks(currentArr);
-          });
-      }
-        const divId = document.getElementById(titleParent);
-        const rqdTitleiD = targetID.slice(3, (targetID.length));
-      if ( item.id ===  rqdTitleiD) {
-        divId.classList.toggle('task-div');
-      }
-   });
+      editTask.addEventListener('click', () => {
+      completeEdit(currentArr, requiredID);
+      renderTasks(currentArr);
+      });
+    }
+    const divId = document.getElementById(titleParent);
+    const rqdTitleiD = targetID.slice(3, (targetID.length));
+    if (item.id === rqdTitleiD) {
+      divId.classList.toggle('task-div');
+    }
+  });
 });
 
 sortItem.addEventListener('change', (e) => {
   e.preventDefault();
   const sortArr = getTaskArr(group.myTodoArray, selectedGrpId);
-  let sortBasis = sortItem.value;
-    sortTasks(sortArr, sortBasis);  
+  const sortBasis = sortItem.value;
+  sortTasks(sortArr, sortBasis);
 });
