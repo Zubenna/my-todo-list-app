@@ -29,7 +29,7 @@ submitGrpForm.addEventListener('submit', (e) => {
   group.render();
 });
 
-export const renderTasks = (taskArray) => {
+const renderTasks = (taskArray) => {
   group.checkLocalStorage();
   taskBoxEdit.innerHTML = '';
   taskArray.forEach((task) => {
@@ -124,3 +124,4 @@ sortItem.addEventListener('change', (e) => {
   sortTasks(sortArr, sortBasis);
 });
 
+export default renderTasks;
