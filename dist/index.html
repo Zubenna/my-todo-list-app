@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>My-Todo-List</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Frank+Ruhl+Libre&display=swap" rel="stylesheet">
+    <title>My-Todo-group</title>
 </head>
 <body>
-  <div id="content"></div>
+  <section id='menu-box'>
+    <div id='menu'>
+      <h2>Organize Your Tasks</h2>
+    </div>
+  </section>
+  <section id='todo-body'>
+    <div id='group-box'>
+      <div class='group-name'>
+        <i class="fa fa-folder-open"></i>
+        <h3>Task Groups</h3>
+      </div>
+      <p id='gErrMsg'></p>
+      <div class='text-center' id="group-container"></div>
+      <form class='add-group'>
+        <input type='text' id='group-name' placeholder='Enter Group Name'></br>
+        <input type='submit' value='Submit' id='submit-group'> 
+      </form>
+      <div class='remove-group'>
+        <button id='delete-group'>Delete Group</button>
+      </div>
+    </div>
+    <div id='task-container'>
+      <select name="priority" id="sort-item">
+        <option selected >Select sort Option</option>
+        <option value='priority'>priority</option>
+        <option value='dateDue'>dateDue</option>
+      </select>
+      <div class='task-box'></div>
+      <i class="fa fa-plus-circle add-task"></i>
+      <div id="enter-task">
+        <div class='close-box'>
+          <div class="close"><a href="index.html" class="close">X</a></div>
+        </div>
+          <h2 class="text-center form-title">New Task</h2>
+          <span id="errorMsg"></span>
+        <form action="" id="form" class='form'>
+          <label class='pt-0'for="task-name">Task Name</label><br>
+          <input type="text" id="task-name" placeholder="Enter Task" required><br>
+          <label for="due-date">Due Date</label><br>
+          <input type="date" id="due-date" placeholder="Select Due Date" required><br>
+          <label for="priority">Priority</label><br>
+          <select name="priority" id="select-priority">
+            <option value='high'>High</option>
+            <option value='medium'>Medium</option>
+            <option value='low'>Low</option>
+          </select><br>
+          <label for="describe">Description</label><br>
+          <textarea name="describe" rows="5" id='describe-task' placeholder='Enter Task Description'required></textarea><br>
+          <input type="submit" id="submit-task" value="Submit">
+          <input type="submit" id="update-task" value="Update">
+        </form>
+      </div>
+    </div>
+  </section>
   <script src="main.js"></script>
 </body>
 </html>

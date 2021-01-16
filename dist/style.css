@@ -1,4 +1,291 @@
-#myname {
-    color: firebrick;
-    background: forestgreen;
+/* font-family: 'Courgette', cursive; ----- for description */ 
+/* font-family: 'Courgette', cursive;
+font-family: 'Frank Ruhl Libre', serif; */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Frank Ruhl Libre', serif;
+}
+
+#menu {
+  height: 3rem;
+  background: #dd8f8f;
+  text-align: center;
+  color: #000;
+}
+
+#menu h2 {
+  font-size: 1.8rem;
+  padding-top: 0.4rem;
+  font-weight: bold;
+}
+
+#todo-body {
+  display: flex;
+} 
+
+#group-box {
+  width: 25%;
+  height: 92.8vh;
+  background: #e2bfbf;
+  overflow-y: scroll;
+  padding: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#group-box h3 {
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+#group-name {
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: none;
+  width: 100%;
+}
+
+#submit-group {
+  margin-top: 1rem;
+  padding: 0.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.group-name {
+  display: flex;
+  margin-top: 4rem;
+}
+
+.fa-folder-open {
+  font-size: 1.7rem;
+  padding-left: 2.3rem;
+}
+
+#task-container {
+  background: cadetblue;
+  height: 92.8vh;
+  width: 100%;
+}
+
+#delete-group {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.add-group {
+  margin: 0 auto;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+#enter-task {
+  width: 32%;
+  background: cornflowerblue;
+  position: absolute;
+  top: 16%;
+  left: 40%;
+  border-radius: 10px;  
+}
+
+.close-box {
+  height: 2rem;
+  display: block;
+}
+  
+.close {
+  padding: 0.3rem 0.4rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  float: right;
+}
+  
+.close a {
+  color: #fff;
+}
+
+.form {
+  padding: 1rem;
+}
+
+.form label{
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+  input[type='text'],
+  input[type= 'date'],
+  input[type='submit'],
+  textarea,
+  select {
+  width: 100%;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  font-family: 'Courgette', cursive;
+  background: #f0ebeb;
+  padding: 0.2rem;
+}
+
+.add-task {
+  font-size: 3rem;
+  color: #232fcf;
+  position: relative;
+  top: 20%;
+  left: 10%;
+}
+
+.no-display {
+  display: none;
+}
+
+#group-container p {
+  margin: 0 0 0.4rem 0;
+  font-weight: bold;
+  color: #000;
+  border: 1px solid #232fcf;
+}
+
+.active-group {
+  background: #068640;
+}
+
+.group-duplicate {
+  color: #f30b32;
+}
+
+.red-border {
+  border: 2px solid #f30b32;
+}
+
+.task-box {
+  margin-top: 4rem;
+}
+
+#task-container {
+  overflow-y: scroll; 
+}
+
+.task-box-div {
+  background: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.6rem;
+  border-radius: 5px;
+}
+
+.t-describe {
+  max-width: 40%;
+}
+
+.t-title {
+  width: 20%;
+}
+
+.t-priority {
+  width: 15%;
+}
+
+.fa-edit,
+.fa-trash-o {
+  font-size: 1.5rem;
+}
+
+.edit-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-edit {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sort-item {
+  display: none;
+  width: 40%;
+  margin: 3rem auto 0 auto;
+}
+
+.task-div {
+  text-decoration: line-through;
+  background: #b6b2b2;
+  color: #f30b32;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 767.9px) {
+  #todo-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #enter-task {
+    width: 75%;
+    top: 42rem;
+    left: 12%;
+  }
+
+  .add-task {  
+    top: 0;
+    left: 0;
+  }
+
+  #group-box {
+    width: 100%;
+  }
+
+  .t-describe {
+    font-size: 0.8rem;
+  }
+
+  .task-box-div h5 {
+    font-size: 1rem;
+  }
+
+  .task-box-div span {
+    display: none;
+  }
+
+  .task-box-div .fa {
+    font-size: 1rem;
+  }
+
+  .t-priority,
+  #sort-item {
+    font-size: 0.8rem;
+  }
+
+  .t-priority,
+  .due-date {
+    color: #280bca;
+    font-weight: bold;
+  }
+
+  .due-date {
+    padding-left: 0.2rem;
+    font-size: 0.7rem;
+  }
+ 
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .task-box-div span {
+    display: none;
+  }
+
+  #group-box {
+    width: 40%;
+  }
+
+  #enter-task {
+    width: 60%;
+    top: 12rem;
+    left: 32%;
+  }
 }
