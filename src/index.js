@@ -1,6 +1,6 @@
 import * as group from './modules/addGroupName';
 import {
-  createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
+  renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
 } from './modules/manageTasks';
 import {
   addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
@@ -28,20 +28,6 @@ submitGrpForm.addEventListener('submit', (e) => {
   group.createGroupName();
   group.render();
 });
-
-const renderTasks = (taskArray) => {
-  group.checkLocalStorage();
-  taskBoxEdit.innerHTML = '';
-  taskArray.forEach((task) => {
-    const htmlTask = `
-      <div class='task-box-div' id='tb-${task.id}'><h5 class='t-title' id='pt-${task.id}'><span>Title:</span> ${task.name}</h5></br>
-      <textarea class='t-describe'>${task.describe}</textarea><p class='t-priority'><span>Priority:</span> ${task.priority}</p>
-      <div class='edit-box'><p class='due-date'><span>Due Date:</span> ${task.dateDue}</p><div class='task-edit'><i class="fa fa-edit" id='${task.id}e'></i>
-      <i class='fa fa-trash-o' id='${task.id}d'></i>
-      </div></div></div></br>`;
-    taskBoxEdit.insertAdjacentHTML('afterbegin', htmlTask);
-  });
-};
 
 const selectGroup = (currentTarget) => {
   taskBoxEdit.innerHTML = '';
@@ -123,5 +109,3 @@ sortItem.addEventListener('change', (e) => {
   const sortBasis = sortItem.value;
   sortTasks(sortArr, sortBasis);
 });
-
-export default renderTasks;

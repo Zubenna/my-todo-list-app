@@ -15,7 +15,6 @@
       "no-param-reassign": "off",
       "import/no-mutable-exports": "off",
       "consistent-return": "off",
-      "import/no-cycle": "off",
       "eol-last": "off",
       "arrow-parens": "off"
     },
