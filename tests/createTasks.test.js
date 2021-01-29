@@ -1,12 +1,11 @@
-const  createTasks = require('./createTasks');
-
+const createTasks = require('./createTasks');
 
 describe('Todo task-name', () => {
   test('returns undefined if taskname is not supplied', () => {
     const newTaskName = '';
-    expect(newTaskName.taskname).toBeUndefined();;
+    expect(newTaskName.taskname).toBeUndefined();
   });
-  
+
   test('returns createTasks.name.value if task name is correct', () => {
     const newTaskName = createTasks();
     expect(newTaskName.taskname).toBe('Travel to Lagos');
@@ -21,9 +20,9 @@ describe('Todo task-name', () => {
 describe('Todo task due-date', () => {
   test('returns undefined if duedate is not supplied', () => {
     const newTaskName = '';
-    expect(newTaskName.dateDue).toBeUndefined();;
+    expect(newTaskName.dateDue).toBeUndefined();
   });
-  
+
   test('Should pass if duedate is correct', () => {
     const newTaskName = createTasks();
     expect(newTaskName.dateDue).toBe('2020-01-15');
@@ -40,7 +39,7 @@ describe('Todo task description', () => {
     const newTaskName = '';
     expect(newTaskName.describe).toBeUndefined();
   });
-  
+
   test('Should pass if there is a match', () => {
     const newTaskName = createTasks();
     expect(newTaskName.describe).toMatch(/interview/);
@@ -57,7 +56,7 @@ describe('Todo task priority', () => {
     const newTaskName = createTasks();
     expect(newTaskName.priority).toBe('Medium');
   });
-  
+
   test('Should fail if there is not match', () => {
     const newTaskName = createTasks();
     expect(newTaskName.priority).not.toMatch(/ow/);

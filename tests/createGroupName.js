@@ -14,7 +14,7 @@ const groupForm = {
   tasks: {
     value: [],
   },
-}
+};
 
 const createGroupName = () => {
   const id = groupForm.id.value;
@@ -29,7 +29,7 @@ const findItem = (arr, inputItem) => {
     return;
   }
   arr.forEach((item) => {
-    if (item.name == inputItem) {
+    if (item.name === inputItem) {
       index = arr.indexOf(item.name);
     }
   });
@@ -38,5 +38,5 @@ const findItem = (arr, inputItem) => {
 
 module.exports = {
   createGroupName,
-  findItem
-}
+  findItem,
+};

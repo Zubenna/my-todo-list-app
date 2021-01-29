@@ -44,6 +44,11 @@ cd my-todo-list-app, then, cd dist.
 - Click on index.html to display the application on the browser.
 - Text all application features.
 
+## Testing With Jest
+The folder, test, contains all the tests written for this project. Functions in the addGroupName.js and manageTasks.js are mocked and tested using two different test files. The testing framework used is Jest. About 20 different tests have been written for this project by mocking the actual implementation. You can run the test at the root of the project by opening the command prompt and typing the command below:
+```
+ npm run test
+``` 
 ## Live Version
 - [Launch App](https://zubenna.github.io/my-todo-list-app/)
 
@@ -53,6 +58,7 @@ cd my-todo-list-app, then, cd dist.
 - HTML
 - CSS
 - Bootstrap 4
+- Jest for testing
 
 ## Author
 

@@ -1,25 +1,25 @@
 const myFunctions = require('./createGroupName');
 
-const createGroupName = myFunctions.createGroupName;
-const findItem = myFunctions.findItem;
+const { createGroupName } = myFunctions;
+const { findItem } = myFunctions;
 
 const groupNameArray = [
-    {
-      id: 3456,
-      name: 'Travelling',
-      tasks: [],
-    },
-    {
-      id: 7865,
-      name: 'Study',
-      tasks: [],
-    },
-    {
-      id: 7977,
-      name: 'Shopping',
-      tasks: [],
-    },
-  ];
+  {
+    id: 3456,
+    name: 'Travelling',
+    tasks: [],
+  },
+  {
+    id: 7865,
+    name: 'Study',
+    tasks: [],
+  },
+  {
+    id: 7977,
+    name: 'Shopping',
+    tasks: [],
+  },
+];
 
 describe('group name', () => {
   test('returns undefined if groupname is not supplied', () => {
@@ -54,5 +54,4 @@ describe('Find groupName', () => {
   test('returns value other than empty string if groupName is found in array', () => {
     expect(findItem(groupNameArray, groupNameArray[1].name)).not.toBe('');
   });
-
 });
