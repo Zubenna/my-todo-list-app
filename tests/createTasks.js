@@ -6,11 +6,11 @@ const todoTaskForm = {
   id: {
     value: 3456,
   },
-  
+
   taskname: {
     value: 'Travel to Lagos',
   },
-  
+
   dateDue: {
     value: '2020-01-15',
   },
