@@ -5,17 +5,17 @@ const findItem = myFunctions.findItem;
 
 const groupNameArray = [
     {
-      id: '3456',
+      id: 3456,
       name: 'Travelling',
       tasks: [],
     },
     {
-      id: '7865',
+      id: 7865,
       name: 'Study',
       tasks: [],
     },
     {
-      id: '7977',
+      id: 7977,
       name: 'Shopping',
       tasks: [],
     },
@@ -37,7 +37,7 @@ describe('group name', () => {
 
   test('returns createGroupName.id.value if id is supplied', () => {
     const newGroupName = createGroupName();
-    expect(newGroupName.id).toBe('3456');
+    expect(newGroupName.id).toBe(3456);
   });
 
   test('returns an array of length 0 if new task array is created', () => {

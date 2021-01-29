@@ -4,7 +4,7 @@ const todoGroup = (id, groupName, tasks) => ({
 
 const groupForm = {
   id: {
-    value: '3456',
+    value: 3456,
   },
 
   groupName: {
