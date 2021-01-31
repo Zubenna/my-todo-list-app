@@ -1,5 +1,5 @@
 import {
-  groupName, groupBox, groupDupError,
+  groupBox,
 } from './domVariables';
 
 export let myTodoArray;
@@ -82,7 +82,9 @@ export const findArrIndex = (arr, itemID) => {
 
 export const deleteGroup = (theArray, grpID) => {
   const index = findArrIndex(theArray, grpID);
-  theArray.splice(index, 1);
+  if (index !== -1) {
+    theArray.splice(index, 1);
+  }
   updateLocalStorage();
   return theArray;
 };

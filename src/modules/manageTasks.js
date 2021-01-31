@@ -3,7 +3,7 @@ import {
   taskBoxEdit, taskName, dueDate, selectPriority, describeTask, addForm,
 } from './domVariables';
 
-const todoTask = () => ({
+const todoTask = (id, name, dateDue, priority, describe) => ({
   id: Date.now().toString(),
   name: taskName.value,
   dateDue: dueDate.value,
