@@ -1,5 +1,5 @@
 import {
-  groupName, groupBox, groupDupError,
+  groupBox,
 } from './domVariables';
 
 export let myTodoArray;
@@ -29,8 +29,8 @@ const DEFAULT_DATA = [
   },
 ];
 
-const todoGroup = () => ({
-  id: Date.now().toString(), name: groupName.value.toUpperCase(), tasks: [],
+export const todoGroup = (id, name, tasks) => ({
+  id, name, tasks,
 });
 
 export const updateLocalStorage = () => {
@@ -68,20 +68,11 @@ export const findItem = (arr, inputItem) => {
   return index;
 };
 
-export const createGroupName = () => {
-  const newGroup = todoGroup();
-  const grpName = newGroup.name;
-  if ((myTodoArray.length === 0 || findItem(myTodoArray, grpName) === '') && (groupName.value !== '')) {
-    checkLocalStorage();
-    myTodoArray.push(newGroup);
-    updateLocalStorage();
-    groupDupError.innerHTML = '';
-    groupName.classList.remove('red-border');
-  } else {
-    groupDupError.innerHTML = 'Duplicate or Empty Group Name not Allowed';
-    groupDupError.classList.add('group-duplicate');
-    groupName.classList.add('red-border');
-  }
+export const createGroupName = (newGrpName) => {
+  checkLocalStorage();
+  myTodoArray.push(newGrpName);
+  updateLocalStorage();
+  return newGrpName.name;
 };
 
 export const findArrIndex = (arr, itemID) => {
@@ -91,6 +82,9 @@ export const findArrIndex = (arr, itemID) => {
 
 export const deleteGroup = (theArray, grpID) => {
   const index = findArrIndex(theArray, grpID);
-  theArray.splice(index, 1);
+  if (index !== -1) {
+    theArray.splice(index, 1);
+  }
   updateLocalStorage();
+  return theArray;
 };

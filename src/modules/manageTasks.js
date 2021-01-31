@@ -1,26 +1,40 @@
 import * as task from './addGroupName';
 import {
-  taskName, dueDate, selectPriority, describeTask, addForm,
+  taskBoxEdit, addForm, taskName, dueDate, selectPriority, describeTask,
 } from './domVariables';
-import renderTasks from '../index';
 
-const todoTask = () => ({
-  id: Date.now().toString(),
-  name: taskName.value,
-  dateDue: dueDate.value,
-  priority: selectPriority.value,
-  describe: describeTask.value,
+export const todoTask = (id, name, dateDue, priority, describe) => ({
+  id, name, dateDue, priority, describe,
 });
 
-export const createTasks = (arr, selectID) => {
+export const renderTasks = (taskArray) => {
+  task.checkLocalStorage();
+  taskBoxEdit.innerHTML = '';
+  taskArray.forEach((task) => {
+    const htmlTask = `
+      <div class='task-box-div' id='tb-${task.id}'><h5 class='t-title' id='pt-${task.id}'><span>Title:</span> ${task.name}</h5></br>
+      <textarea class='t-describe'>${task.describe}</textarea><p class='t-priority'><span>Priority:</span> ${task.priority}</p>
+      <div class='edit-box'><p class='due-date'><span>Due Date:</span> ${task.dateDue}</p><div class='task-edit'><i class="fa fa-edit" id='${task.id}e'></i>
+      <i class='fa fa-trash-o' id='${task.id}d'></i>
+      </div></div></div></br>`;
+    taskBoxEdit.insertAdjacentHTML('afterbegin', htmlTask);
+  });
+};
+
+export const setTasks = (arr, selectID) => {
   const currentIndex = task.findArrIndex(arr, selectID);
   const currentArray = arr[currentIndex];
-  if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
-    const newTask = todoTask();
-    currentArray.tasks.push(newTask);
-    task.updateLocalStorage();
-  }
-  renderTasks(currentArray.tasks);
+  return currentArray;
+};
+
+export const createTasks = (currentArray, newTask) => {
+  currentArray.tasks.push(newTask);
+  return currentArray.tasks;
+};
+
+export const updateAndDisplay = (arr) => {
+  task.updateLocalStorage();
+  renderTasks(arr);
 };
 
 export const getTaskArr = (arr, grpId) => {
@@ -42,7 +56,8 @@ export const setTaskEdit = (arr, selectedId) => {
 
 export const completeEdit = (arr, editId) => {
   const rqdIndex = task.findArrIndex(arr, editId);
-  const newEdit = todoTask();
+  const newEdit = todoTask(Date.now().toString(), taskName.value, dueDate.value,
+    selectPriority.value, describeTask.value);
   arr.splice(rqdIndex, 1, newEdit);
   task.updateLocalStorage();
 };
