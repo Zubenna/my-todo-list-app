@@ -20,7 +20,7 @@ const groupNameArray = [
   },
 ];
 
-xdescribe('Testing creation of new Group Object', () => {
+describe('Testing creation of new Group Object', () => {
   test('Passes if todoGroup Object is successfully created', () => {
   const newGroupObj = todoGroup(groupNameArray[0].id, groupNameArray[0].name, groupNameArray[0].tasks);
   const expectation = {
@@ -30,7 +30,7 @@ xdescribe('Testing creation of new Group Object', () => {
   });
 });
 
-xdescribe('Testing todoGroup valiables', () => {
+describe('Testing todoGroup valiables', () => {
   const newGroup = todoGroup(groupNameArray[0].id, groupNameArray[0].name, groupNameArray[0].tasks);
   test('Passes if group name is supplied', () => {
     expect(newGroup.name).toBe('Travelling');
@@ -59,7 +59,7 @@ xdescribe('Testing todoGroup valiables', () => {
   });
 });
 
-xdescribe('Testing findItem function', () => {
+describe('Testing findItem function', () => {
   test('returns empty string if group name is not found in array', () => {
     expect(findItem(groupNameArray, 'Sports')).toBe('');
   });
@@ -69,7 +69,7 @@ xdescribe('Testing findItem function', () => {
   });
 });
 
-xdescribe('Testing findArrIndex function', () => {
+describe('Testing findArrIndex function', () => {
   test('Returns index of an array element if specified id exist', () => {
     expect(findArrIndex(groupNameArray, 7977)).toEqual(2);
   });
@@ -79,14 +79,14 @@ xdescribe('Testing findArrIndex function', () => {
   });
 });
 
-xdescribe('Testing deleteGroup function', () => {
+describe('Testing deleteGroup function', () => {
   test('Returns length of original array if no element is deleted', () => {
   const result = deleteGroup(groupNameArray, 8900);
     expect(result.length).toEqual(3);
   });
 });
 
-xdescribe('Testing deleteGroup function', () => {
+describe('Testing deleteGroup function', () => {
   test('returns array of length 1 less than original array if one element is deleted', () => {
   const result = deleteGroup(groupNameArray, 7977);
   expect(result.length).toEqual(2);

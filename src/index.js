@@ -1,6 +1,6 @@
 import * as group from './modules/addGroupName';
 import {
-  todoTask, setTasks, renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
+  todoTask, setTasks, renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks, updateAndDisplay,
 } from './modules/manageTasks';
 import {
   groupName, addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
@@ -81,7 +81,8 @@ submitTask.addEventListener('click', () => {
   const mainArr = setTasks(group.myTodoArray, selectedGrpId);
   if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
     const newTask = todoTask(Date.now().toString(), taskName.value, dueDate.value, selectPriority.value, describeTask.value);
-    createTasks(mainArr, newTask);
+    const result = createTasks(mainArr, newTask);
+    updateAndDisplay(result);
   }
 });
 
