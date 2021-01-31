@@ -1,15 +1,13 @@
 import {
-    createTasks,
+    createTasks, todoTask,
 } from './manageTasks';
-
-
 
 const todoTasksArr = [
     {
       id: '3456',
       name: 'Travelling',
       tasks: [{
-        id: '7893455',
+        id: 7893455,
         name: 'Travell to Lagos',
         dateDue: '2020-01-15',
         priority: 'High',
@@ -20,7 +18,7 @@ const todoTasksArr = [
       id: '7865',
       name: 'Study',
       tasks: [{
-        id: '5768394',
+        id: 5768394,
         name: 'Study JavaScript',
         dateDue: '2020-01-20',
         priority: 'Medium',
@@ -28,7 +26,18 @@ const todoTasksArr = [
       }],
     },
   ];
-  
+
+describe('New Task Object', () => {
+  test('Creating New Todo task for a selected group', () => {
+  console.log(todoTasksArr[0].tasks[0].id);
+  const newTask = todoTask(todoTasksArr[0].tasks[0], todoTasksArr[0].tasks.name, todoTasksArr[0].tasks.dateDue,
+                           todoTasksArr[0].tasks.priority, todoTasksArr[0].tasks.describe);
+  const expectation = {
+    id: 5768394, name: 'Study JavaScript', dateDue: '2020-01-20', priority: 'Medium', describe: 'Studying this topic is crucial to my next project',
+  };
+  expect(newTask).toStrictEqual(expectation);
+  });
+});
 
 xdescribe('Todo task-name', () => {
   test('returns undefined if taskname is not supplied', () => {

@@ -1,14 +1,10 @@
 import * as task from './addGroupName';
 import {
-  taskBoxEdit, taskName, dueDate, selectPriority, describeTask, addForm,
+  taskBoxEdit, addForm,
 } from './domVariables';
 
-const todoTask = (id, name, dateDue, priority, describe) => ({
-  id: Date.now().toString(),
-  name: taskName.value,
-  dateDue: dueDate.value,
-  priority: selectPriority.value,
-  describe: describeTask.value,
+export const todoTask = (id, name, dateDue, priority, describe) => ({
+  id, name, dateDue, priority, describe,
 });
 
 export const renderTasks = (taskArray) => {
@@ -25,15 +21,17 @@ export const renderTasks = (taskArray) => {
   });
 };
 
-export const createTasks = (arr, selectID) => {
+export const setTasks = (arr, selectID) => {
   const currentIndex = task.findArrIndex(arr, selectID);
   const currentArray = arr[currentIndex];
-  if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
-    const newTask = todoTask();
-    currentArray.tasks.push(newTask);
-    task.updateLocalStorage();
-  }
+  return currentArray;
+};
+
+export const createTasks = (currentArray, newTask) => {
+  currentArray.tasks.push(newTask);
+  task.updateLocalStorage();
   renderTasks(currentArray.tasks);
+  return currentArray.tasks;
 };
 
 export const getTaskArr = (arr, grpId) => {

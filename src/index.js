@@ -1,10 +1,10 @@
 import * as group from './modules/addGroupName';
 import {
-  renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
+  todoTask, setTasks, renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
 } from './modules/manageTasks';
 import {
   groupName, addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
-  groupDupError, groupBox, submitTask, addForm,
+  selectPriority, taskName, dueDate, describeTask, groupDupError, groupBox, submitTask, addForm,
 } from './modules/domVariables';
 
 let selectedGrpId = '';
@@ -78,7 +78,11 @@ deleteGroup.addEventListener('click', () => {
 });
 
 submitTask.addEventListener('click', () => {
-  createTasks(group.myTodoArray, selectedGrpId);
+  const mainArr = setTasks(group.myTodoArray, selectedGrpId);
+  if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
+    const newTask = todoTask(Date.now().toString(), taskName.value, dueDate.value, selectPriority.value, describeTask.value);
+    createTasks(mainArr, newTask);
+  }
 });
 
 taskBoxEdit.addEventListener('click', (e) => {
