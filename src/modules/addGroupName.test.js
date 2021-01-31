@@ -1,7 +1,13 @@
-const myFunctions = require('./createGroupName');
+// const myFunctions = require('./createGroupName');
 
-const { createGroupName } = myFunctions;
-const { findItem } = myFunctions;
+// const { createGroupName } = myFunctions;
+// const { findItem } = myFunctions;
+
+import {
+  createGroupName, todoGroup,
+} from './addGroupName';
+
+
 
 const groupNameArray = [
   {
@@ -21,26 +27,27 @@ const groupNameArray = [
   },
 ];
 
-xdescribe('group name', () => {
+describe('group name', () => {
   test('returns undefined if groupname is not supplied', () => {
-    expect(createGroupName.groupName).toBe(undefined);
+    createGroupName(groupNameArray[0]);
+    expect(createGroupName.grpName).toBe('Travelling');
   });
 
-  test('returns createGroupName.groupName.value if groupname is supplied', () => {
+  xtest('returns createGroupName.groupName.value if groupname is supplied', () => {
     const newGroupName = createGroupName();
     expect(newGroupName.groupName).toBe('Travelling');
   });
 
-  test('returns undefined if id is not supplied', () => {
+  xtest('returns undefined if id is not supplied', () => {
     expect(createGroupName.id).toBe(undefined);
   });
 
-  test('returns createGroupName.id.value if id is supplied', () => {
+  xtest('returns createGroupName.id.value if id is supplied', () => {
     const newGroupName = createGroupName();
     expect(newGroupName.id).toBe(3456);
   });
 
-  test('returns an array of length 0 if new task array is created', () => {
+  xtest('returns an array of length 0 if new task array is created', () => {
     const newGroupName = createGroupName();
     expect(newGroupName.tasks.length).toEqual(0);
   });

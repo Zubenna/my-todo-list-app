@@ -3,8 +3,8 @@ import {
   renderTasks, createTasks, getTaskArr, setTaskEdit, completeEdit, sortTasks,
 } from './modules/manageTasks';
 import {
-  addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
-  groupBox, submitTask, addForm,
+  groupName, addTask, formTitle, editTask, sortItem, submitGrpForm, deleteGroup, taskBoxEdit,
+  groupDupError, groupBox, submitTask, addForm,
 } from './modules/domVariables';
 
 let selectedGrpId = '';
@@ -25,7 +25,17 @@ addTask.addEventListener('click', () => {
 
 submitGrpForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  group.createGroupName();
+  const newGrpName = group.todoGroup(Date.now().toString(), groupName.value.toUpperCase(), []);
+  const grpName = newGrpName.name;
+  if ((group.myTodoArray.length === 0 || group.findItem(group.myTodoArray, grpName) === '') && (groupName.value !== '')) {
+    group.createGroupName(newGrpName);
+    groupDupError.innerHTML = '';
+    groupName.classList.remove('red-border');
+  } else {
+    groupDupError.innerHTML = 'Duplicate or Empty Group Name not Allowed';
+    groupDupError.classList.add('group-duplicate');
+    groupName.classList.add('red-border');
+  }
   group.render();
 });
 

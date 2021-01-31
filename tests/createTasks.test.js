@@ -1,6 +1,6 @@
 const createTasks = require('./createTasks');
 
-describe('Todo task-name', () => {
+xdescribe('Todo task-name', () => {
   test('returns undefined if taskname is not supplied', () => {
     const newTaskName = '';
     expect(newTaskName.taskname).toBeUndefined();
@@ -17,7 +17,7 @@ describe('Todo task-name', () => {
   });
 });
 
-describe('Todo task due-date', () => {
+xdescribe('Todo task due-date', () => {
   test('returns undefined if duedate is not supplied', () => {
     const newTaskName = '';
     expect(newTaskName.dateDue).toBeUndefined();
@@ -34,7 +34,7 @@ describe('Todo task due-date', () => {
   });
 });
 
-describe('Todo task description', () => {
+xdescribe('Todo task description', () => {
   test('returns undefined if description is not supplied', () => {
     const newTaskName = '';
     expect(newTaskName.describe).toBeUndefined();
@@ -51,7 +51,7 @@ describe('Todo task description', () => {
   });
 });
 
-describe('Todo task priority', () => {
+xdescribe('Todo task priority', () => {
   test('should pass if priority is correct', () => {
     const newTaskName = createTasks();
     expect(newTaskName.priority).toBe('Medium');
@@ -68,7 +68,7 @@ describe('Todo task priority', () => {
   });
 });
 
-describe('New Task', () => {
+xdescribe('New Task', () => {
   test('Creating New Todo task for a selected group', () => {
     const newTask = createTasks();
     const expectation = {
