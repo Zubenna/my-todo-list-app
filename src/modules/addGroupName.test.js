@@ -22,11 +22,12 @@ const groupNameArray = [
 
 describe('Testing creation of new Group Object', () => {
   test('Passes if todoGroup Object is successfully created', () => {
-  const newGroupObj = todoGroup(groupNameArray[0].id, groupNameArray[0].name, groupNameArray[0].tasks);
-  const expectation = {
-    id: 3456, name: 'Travelling', tasks: [],
-  };
-  expect(newGroupObj).toStrictEqual(expectation);
+    const newGroupObj = todoGroup(groupNameArray[0].id, groupNameArray[0].name,
+      groupNameArray[0].tasks);
+    const expectation = {
+      id: 3456, name: 'Travelling', tasks: [],
+    };
+    expect(newGroupObj).toStrictEqual(expectation);
   });
 });
 
@@ -37,7 +38,8 @@ describe('Testing todoGroup valiables', () => {
   });
 
   test('Returns undefined if name parameter if undefined', () => {
-    const newGroupB = todoGroup(groupNameArray[0].id, groupNameArray[0].gname, groupNameArray[0].tasks);
+    const newGroupB = todoGroup(groupNameArray[0].id, groupNameArray[0].gname,
+      groupNameArray[0].tasks);
     expect(newGroupB.name).toBe(undefined);
   });
 
@@ -73,7 +75,7 @@ describe('Testing findArrIndex function', () => {
   test('Returns index of an array element if specified id exist', () => {
     expect(findArrIndex(groupNameArray, 7977)).toEqual(2);
   });
-  
+
   test('Returns -1 if specified id does not exist in array', () => {
     expect(findArrIndex(groupNameArray, 8900)).toEqual(-1);
   });
@@ -81,14 +83,14 @@ describe('Testing findArrIndex function', () => {
 
 describe('Testing deleteGroup function', () => {
   test('Returns length of original array if no element is deleted', () => {
-  const result = deleteGroup(groupNameArray, 8900);
+    const result = deleteGroup(groupNameArray, 8900);
     expect(result.length).toEqual(3);
   });
 });
 
 describe('Testing deleteGroup function', () => {
   test('returns array of length 1 less than original array if one element is deleted', () => {
-  const result = deleteGroup(groupNameArray, 7977);
-  expect(result.length).toEqual(2);
+    const result = deleteGroup(groupNameArray, 7977);
+    expect(result.length).toEqual(2);
   });
 });

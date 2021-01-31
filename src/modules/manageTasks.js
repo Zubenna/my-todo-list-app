@@ -35,7 +35,7 @@ export const createTasks = (currentArray, newTask) => {
 export const updateAndDisplay = (arr) => {
   task.updateLocalStorage();
   renderTasks(arr);
-}
+};
 
 export const getTaskArr = (arr, grpId) => {
   const taskIndex = task.findArrIndex(arr, grpId);
@@ -56,7 +56,8 @@ export const setTaskEdit = (arr, selectedId) => {
 
 export const completeEdit = (arr, editId) => {
   const rqdIndex = task.findArrIndex(arr, editId);
-  const newEdit = todoTask(Date.now().toString(), taskName.value, dueDate.value, selectPriority.value, describeTask.value);
+  const newEdit = todoTask(Date.now().toString(), taskName.value, dueDate.value,
+                           selectPriority.value, describeTask.value);
   arr.splice(rqdIndex, 1, newEdit);
   task.updateLocalStorage();
 };
