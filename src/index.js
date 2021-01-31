@@ -82,7 +82,7 @@ submitTask.addEventListener('click', () => {
   const mainArr = setTasks(group.myTodoArray, selectedGrpId);
   if ((taskName.value !== '') && (dueDate.value !== '') && (describeTask.value !== '')) {
     const newTask = todoTask(Date.now().toString(), taskName.value, dueDate.value,
-                             selectPriority.value, describeTask.value);
+      selectPriority.value, describeTask.value);
     const result = createTasks(mainArr, newTask);
     updateAndDisplay(result);
   }

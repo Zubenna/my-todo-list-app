@@ -57,7 +57,7 @@ export const setTaskEdit = (arr, selectedId) => {
 export const completeEdit = (arr, editId) => {
   const rqdIndex = task.findArrIndex(arr, editId);
   const newEdit = todoTask(Date.now().toString(), taskName.value, dueDate.value,
-                           selectPriority.value, describeTask.value);
+    selectPriority.value, describeTask.value);
   arr.splice(rqdIndex, 1, newEdit);
   task.updateLocalStorage();
 };
